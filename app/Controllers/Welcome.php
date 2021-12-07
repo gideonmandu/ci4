@@ -23,7 +23,7 @@ class Welcome extends Controller
     }
 
     public function _remap($method, $param1 = null, $param2 = null)
-    // class method to remap if method in uri does not exist.
+    /** class method to remap if method in uri does not exist.*/
     {
         if (method_exists($this, $method)) {
             return $this->$method($param1, $param2);
