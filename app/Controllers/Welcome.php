@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
-use CodeIgniter\Exceptions\PageNotFoundException;
+// use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Welcome extends Controller
 {
@@ -27,11 +27,10 @@ class Welcome extends Controller
     {
         if (method_exists($this, $method)) {
             return $this->$method($param1, $param2);
+        } else {
+            $this->index();
         }
-        // else {
-        //     $this->index();
-        // }
         // throw exception if ur not found
-        throw PageNotFoundException::forPageNotFound();
+        // throw PageNotFoundException::forPageNotFound();
     }
 }
