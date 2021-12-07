@@ -7,10 +7,16 @@ use CodeIgniter\Controller;
 
 class Test extends Controller
 {
+    public $parser;
+
+    public function __construct()
+    /**instantiated parser in the class making it reusable */
+    {
+        $this->parser = \Config\Services::parser();
+    }
+
     public function index()
     {
-        $parser = \Config\Services::parser();
-
         $data = [
             'page_title' => 'My Blog Title',
             'page_heading' => 'My Blog Heading',
@@ -24,8 +30,24 @@ class Test extends Controller
             'status' => true,
         ];
 
-        $parser->setData($data);
-        echo $parser->render('header');
-        return $parser->render('myview2');
+        $this->parser->setData($data);
+        echo $this->parser->render('header');
+        return $this->parser->render('myview2');
+    }
+
+    public function viewFilters()
+    {
+
+
+        $data = [
+            'page_title' => 'My Filtered Data',
+            'page_heading' => 'Data Filtering',
+            'date' => '07-12-2021',
+            'price' => 100.50,
+            'price_rounded' => 100.69,
+            'status' => true,
+        ];
+
+        return $this->parser->setData($data)->render('filterview');
     }
 }
