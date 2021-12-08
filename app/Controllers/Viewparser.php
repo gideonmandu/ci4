@@ -5,7 +5,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 
 
-class Test extends Controller
+class Viewparser extends Controller
 {
     public $parser;
 
@@ -32,10 +32,10 @@ class Test extends Controller
 
         $this->parser->setData($data);
         echo $this->parser->render('header');
-        return $this->parser->render('myview2');
+        return $this->parser->render('viewparser');
     }
 
-    public function viewFilters()
+    public function filters()
     {
 
 

@@ -13,7 +13,7 @@
     <p>Date Of Creation: {date|date(l dS F Y)}</p>
     <p>Date Modified: {date|date_modify(+5days)|date(l dS F Y)}</p>
     <p>Price: {price|local_currency(USD)|highlight_code}</p>
-    <p>Price to be rounded: {price_rounded|round(floor)}</p>
+    <p>Price to be rounded: {price_rounded|round(1)}</p>
 </body>
 
 </html>
